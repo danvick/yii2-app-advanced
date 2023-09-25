@@ -7,6 +7,8 @@ use yii\base\Model;
 
 /**
  * Login form
+ *
+ * @property-read null|User $user
  */
 class LoginForm extends Model
 {
@@ -20,7 +22,7 @@ class LoginForm extends Model
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             // username and password are both required
@@ -39,7 +41,7 @@ class LoginForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params)
+    public function validatePassword(string $attribute, array $params): void
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
@@ -54,7 +56,7 @@ class LoginForm extends Model
      *
      * @return bool whether the user is logged in successfully
      */
-    public function login()
+    public function login(): bool
     {
         if ($this->validate()) {
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
@@ -68,7 +70,7 @@ class LoginForm extends Model
      *
      * @return User|null
      */
-    protected function getUser()
+    protected function getUser(): ?User
     {
         if ($this->_user === null) {
             $this->_user = User::findByUsername($this->username);
