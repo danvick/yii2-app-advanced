@@ -1,9 +1,9 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'support@example.com',
-    'senderEmail' => 'noreply@example.com',
-    'senderName' => 'Example.com mailer',
+    'adminEmail' => getenv('ADMIN_EMAIL'),
+    'supportEmail' => getenv('SUPPORT_EMAIL'),
+    'senderEmail' => getenv('SENDER_EMAIL'),
+    'senderName' => getenv('SENDER_NAME'),
     'user.passwordResetTokenExpire' => 3600,
     'user.passwordMinLength' => 8,
 ];
