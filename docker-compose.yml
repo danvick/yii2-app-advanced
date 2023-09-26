@@ -2,10 +2,20 @@ version: '3.2'
 
 services:
 
+  api:
+    build: api
+    ports:
+      - 20080:80
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+
   frontend:
     build: frontend
     ports:
-      - 20080:80
+      - 21080:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -15,7 +25,7 @@ services:
   backend:
     build: backend
     ports:
-      - 21080:80
+      - 22080:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
