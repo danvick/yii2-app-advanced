@@ -1,5 +1,6 @@
 <?php
 
+use creocoder\flysystem\LocalFilesystem;
 use yii\caching\FileCache;
 use yii\redis\Cache;
 use yii\redis\Connection;
@@ -25,6 +26,13 @@ return [
         'cache' => [
             'class' => Cache::class,
             'keyPrefix' => 'APP_CACHE_',
+        ],
+        'fs' => [
+            'class' => LocalFilesystem::class,
+            'path' => '@backend/uploads',
+            // 'writeFlags' => LOCK_EX,
+            // 'linkHandling' => 0002,
+            // 'permissions' => [],
         ],
     ],
 ];

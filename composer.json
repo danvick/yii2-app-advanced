@@ -20,7 +20,8 @@
         "yiisoft/yii2-symfonymailer": "~2.0.3",
         "vlucas/phpdotenv": "^5.5@dev",
         "bizley/jwt": "^3.0",
-        "yiisoft/yii2-redis": "^2.0@dev"
+        "yiisoft/yii2-redis": "^2.0@dev",
+        "creocoder/yii2-flysystem": "dev-master"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
