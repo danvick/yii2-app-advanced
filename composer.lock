@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa2fbf14a1f46f8451c5f13301eb6859",
+    "content-hash": "cfcd663dff3aabe2e653cc9286b8415a",
     "packages": [
         {
             "name": "bizley/jwt",
@@ -319,6 +319,56 @@
                 "source": "https://github.com/creocoder/yii2-flysystem/tree/1.2.0"
             },
             "time": "2023-07-31T16:02:45+00:00"
+        },
+        {
+            "name": "danvick/yii2-jumbefupi",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danvick/yii2-jumbefupi.git",
+                "reference": "6511742f11e3208ff96f97766a28ea2ce20b02c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danvick/yii2-jumbefupi/zipball/6511742f11e3208ff96f97766a28ea2ce20b02c1",
+                "reference": "6511742f11e3208ff96f97766a28ea2ce20b02c1",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-httpclient": "*"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "danvick\\jumbefupi\\": "src",
+                    "danvick\\jumbefupi\\migrations\\": "src/migrations"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danvick Miller",
+                    "email": "danvickmiller@gmail.com"
+                }
+            ],
+            "description": "Yii2 extension for integrating with JumbeFupi SMS Gateway",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/danvick/yii2-jumbefupi/issues",
+                "source": "https://github.com/danvick/yii2-jumbefupi/tree/main"
+            },
+            "time": "2023-03-23T17:45:43+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -7719,6 +7769,7 @@
         "creocoder/yii2-flysystem": 20,
         "tuyakhov/yii2-notifications": 20,
         "yiidoc/yii2-timeago": 20,
+        "edwinhoksberg/php-fcm": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,

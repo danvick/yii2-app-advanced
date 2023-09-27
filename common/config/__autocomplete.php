@@ -1,6 +1,7 @@
 <?php
 
 use creocoder\flysystem\Filesystem;
+use danvick\jumbefupi\JumbefupiGateway;
 use tuyakhov\notifications\Notifier;
 use yii\web\Application;
 use yii\web\User;
@@ -31,6 +32,7 @@ class Yii {
 class __Application {
     public Filesystem $fs;
     public Notifier $notifier;
+    public JumbefupiGateway $jumbefupi;
 }
 
 /**

@@ -24,7 +24,8 @@
         "creocoder/yii2-flysystem": "dev-master",
         "tuyakhov/yii2-notifications": "dev-master",
         "yiidoc/yii2-timeago": "dev-master",
-        "edwinhoksberg/php-fcm": "dev-master"
+        "edwinhoksberg/php-fcm": "dev-master",
+        "danvick/yii2-jumbefupi": "dev-main"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",

@@ -1,5 +1,6 @@
 <?php
 
+use danvick\jumbefupi\JumbefupiGateway;
 use yii\db\Connection;
 use yii\symfonymailer\Mailer;
 
@@ -41,6 +42,26 @@ return [
             // See: https://symfony.com/doc/current/mailer.html#using-built-in-transports
             // Or if you use a 3rd party service, see:
             // https://symfony.com/doc/current/mailer.html#using-a-3rd-party-transport
+        ],
+        'jumbefupi' => [
+            'class' => JumbefupiGateway::class,
+            'useFileTransport' => true,
+
+            // You have to set
+            //
+            // 'useFileTransport' => false,
+            //
+            // and configure api access to JumbeFupi
+            //
+            //
+            // 'gatewayUsername' => getenv('JUMBEFUPI_USERNAME'),
+            // 'gatewayApiKey' => getenv('JUMBEFUPI_API_KEY'),
+            // 'senderId' => getenv('JUMBEFUPI_SENDER_ID'),
+            // 'callbackUrl' => getenv('JUMBEFUPI_CALLBACK_URL'),
+            // 'model' => null,
+            // 'cacheBalance' => true,
+            // 'db' => 'db',
+            //
         ],
     ],
 ];

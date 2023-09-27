@@ -1,5 +1,6 @@
 <?php
 
+use danvick\jumbefupi\JumbefupiGateway;
 use yii\db\Connection;
 use yii\symfonymailer\Mailer;
 
@@ -18,6 +19,13 @@ return [
             'transport' => [
                 'dsn' => getenv('MAILER_TRANSPORT_SCHEME') . '://'.getenv('MAILER_TRANSPORT_USERNAME').':'.getenv('MAILER_TRANSPORT_PASSWORD').'@'.getenv('MAILER_TRANSPORT_HOST').':'.getenv('MAILER_TRANSPORT_PORT'),
             ],
+        ],
+        'jumbefupi' => [
+            'class' => JumbefupiGateway::class,
+            'gatewayUsername' => getenv('JUMBEFUPI_USERNAME'),
+            'gatewayApiKey' => getenv('JUMBEFUPI_API_KEY'),
+            'senderId' => getenv('JUMBEFUPI_SENDER_ID'),
+            'callbackUrl' => getenv('JUMBEFUPI_CALLBACK_URL'),
         ],
     ],
 ];
