@@ -1,6 +1,7 @@
 <?php
 
 use common\channels\FcmChannel;
+use common\channels\JumbeFupiChannel;
 use creocoder\flysystem\LocalFilesystem;
 use tuyakhov\notifications\channels\ActiveRecordChannel;
 use tuyakhov\notifications\channels\MailChannel;
@@ -52,6 +53,7 @@ return [
                     'serverKey' => getenv('FCM_SERVER_KEY'),
                     'senderId' => getenv('FCM_SENDER_ID'),
                 ],
+                'sms' => ['class' => JumbeFupiChannel::class],
             ],
         ],
     ],
