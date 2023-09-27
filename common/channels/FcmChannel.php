@@ -1,5 +1,5 @@
 <?php
-
+namespace common\channels;
 
 use Fcm\FcmClient;
 use Fcm\Push\Notification;

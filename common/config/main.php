@@ -1,5 +1,6 @@
 <?php
 
+use common\channels\FcmChannel;
 use creocoder\flysystem\LocalFilesystem;
 use tuyakhov\notifications\channels\ActiveRecordChannel;
 use tuyakhov\notifications\channels\MailChannel;
