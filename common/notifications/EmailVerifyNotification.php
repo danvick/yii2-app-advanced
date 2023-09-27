@@ -35,7 +35,7 @@ class EmailVerifyNotification extends BaseObject implements NotificationInterfac
     }
 
     /*
-    // Prepares notification for 'mail' channel
+    // Prepares notification for 'database' channel
     public function exportForDatabase(): DatabaseMessage
     {
         return Yii::createObject([
@@ -43,7 +43,7 @@ class EmailVerifyNotification extends BaseObject implements NotificationInterfac
             'subject' => 'Subject',
             'body' => 'Message body',
             'data' => [
-                'actionUrl' => ['href' => '/site/index'],
+                'actionUrl' => ['href' => '/site/index', 'params' => [], 'label' => 'Pay Invoice'],
             ],
         ]);
     }*/

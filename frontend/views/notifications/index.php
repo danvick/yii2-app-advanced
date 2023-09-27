@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <div class='forum-icon'>
                                             <i class='fa fa-bell'></i>
                                         </div>
-                                        " . Html::a($model->subject, ['notifications/open', 'id' => $model->id], ['class' => 'forum-item-title']) . "
+                                        " . Html::a($model->data('actionUrl')['label'] ?? $model->subject, ['notifications/open', 'id' => $model->id], ['class' => 'forum-item-title']) . "
                                         <div class='forum-sub-title'>$model->body</div>
                                     </div>
                                     <div class='col-md-2 forum-info'>
