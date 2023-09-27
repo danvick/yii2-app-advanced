@@ -1,32 +1,30 @@
 <?php
+
 namespace common\notifications;
 
+use common\models\User;
 use tuyakhov\notifications\messages\MailMessage;
 use tuyakhov\notifications\NotificationInterface;
 use tuyakhov\notifications\NotificationTrait;
 use Yii;
 use yii\base\BaseObject;
+use yii\base\InvalidConfigException;
 
 class EmailVerifyNotification extends BaseObject implements NotificationInterface
 {
     use NotificationTrait;
 
-    public $user;
+    public User $user;
 
     /**
      * Prepares notification for 'mail' channel
      * @return MailMessage
+     * @throws InvalidConfigException
      */
     public function exportForMail(): MailMessage
     {
-        /*return Yii::createObject([
+        return Yii::createObject([
             'class' => MailMessage::class,
-            'view' => ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-            'viewData' => ['user' => $this->user],
-            'from' => [Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'],
-            'subject' => 'Account registration at ' . Yii::$app->name,
-        ]);*/
-        return new MailMessage([
             'view' => ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
             'viewData' => ['user' => $this->user],
             'from' => [Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'],
