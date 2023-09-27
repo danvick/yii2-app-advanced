@@ -73,7 +73,7 @@ class User extends ActiveRecord implements IdentityInterface, NotifiableInterfac
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public static function findIdentity($id): User|IdentityInterface|null
     {
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
@@ -176,7 +176,7 @@ class User extends ActiveRecord implements IdentityInterface, NotifiableInterfac
      * @param string $password password to validate
      * @return bool if password provided is valid for current user
      */
-    public function validatePassword($password): bool
+    public function validatePassword(string $password): bool
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
@@ -187,7 +187,7 @@ class User extends ActiveRecord implements IdentityInterface, NotifiableInterfac
      * @param string $password
      * @throws Exception
      */
-    public function setPassword($password): void
+    public function setPassword(string $password): void
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }

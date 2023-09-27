@@ -1,7 +1,6 @@
 <?php
 
 use creocoder\flysystem\LocalFilesystem;
-use yii\caching\FileCache;
 use tuyakhov\notifications\channels\ActiveRecordChannel;
 use tuyakhov\notifications\channels\MailChannel;
 use tuyakhov\notifications\Notifier;
@@ -12,7 +11,7 @@ use yii\redis\Session;
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(__DIR__, 2) . '/vendor',
     'components' => [
