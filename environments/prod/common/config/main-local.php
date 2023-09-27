@@ -17,7 +17,7 @@ return [
             'class' => Mailer::class,
             'viewPath' => '@common/mail',
             'transport' => [
-                'dsn' => getenv('MAILER_TRANSPORT_SCHEME') . '://'.getenv('MAILER_TRANSPORT_USERNAME').':'.getenv('MAILER_TRANSPORT_PASSWORD').'@'.getenv('MAILER_TRANSPORT_HOST').':'.getenv('MAILER_TRANSPORT_PORT'),
+                'dsn' => getenv('MAILER_TRANSPORT_SCHEME') . '://' . getenv('MAILER_TRANSPORT_USERNAME') . ':' . getenv('MAILER_TRANSPORT_PASSWORD') . '@' . getenv('MAILER_TRANSPORT_HOST') . ':' . getenv('MAILER_TRANSPORT_PORT'),
             ],
         ],
         'jumbefupi' => [
