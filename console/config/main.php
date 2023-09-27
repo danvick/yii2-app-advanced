@@ -1,5 +1,6 @@
 <?php
 
+use yii\console\controllers\MigrateController;
 use yii\console\controllers\FixtureController;
 use yii\log\FileTarget;
 
@@ -24,6 +25,13 @@ return [
             'class' => FixtureController::class,
             'namespace' => 'common\fixtures',
           ],
+        'migrate' => [
+            'class' => MigrateController::class,
+            'migrationPath' => null,
+            'migrationNamespaces' => [
+                'console\migrations',
+            ],
+        ],
     ],
     'components' => [
         'log' => [
