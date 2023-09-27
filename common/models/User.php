@@ -229,11 +229,19 @@ class User extends ActiveRecord implements IdentityInterface, NotifiableInterfac
 
     public function viaChannels(): array
     {
-        return ['mail', 'database'];
+        // TODO: Enable FCM
+        return ['mail', 'database'/*, 'fcm'*/];
     }
 
     public function routeNotificationForMail(): string
     {
         return $this->email;
     }
+
+    /*
+    TODO: Enable FCM
+    public function routeNotificationForFcm(): string
+    {
+        return $this->fcm_tokens;
+    }*/
 }

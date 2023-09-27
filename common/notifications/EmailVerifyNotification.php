@@ -48,6 +48,15 @@ class EmailVerifyNotification extends BaseObject implements NotificationInterfac
         ]);
     }*/
 
+    /*
+    // Prepares notification for 'fcm' channel
+    public function exportForFcm(): Notification
+    {
+        return (new Fcm\Push\Notification())
+            ->setTitle("Notification title")
+            ->setBody("Notification body");
+    }*/
+
     /** @inheritdoc */
     public function broadcastOn(): array
     {

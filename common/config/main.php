@@ -46,6 +46,11 @@ return [
                 'database' => [
                     'class' => ActiveRecordChannel::class
                 ],
+                'fcm' => [
+                    'class' => FcmChannel::class,
+                    'serverKey' => getenv('FCM_SERVER_KEY'),
+                    'senderId' => getenv('FCM_SENDER_ID'),
+                ],
             ],
         ],
     ],
