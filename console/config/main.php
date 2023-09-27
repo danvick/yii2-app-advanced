@@ -30,6 +30,7 @@ return [
             'migrationPath' => null,
             'migrationNamespaces' => [
                 'console\migrations',
+                'tuyakhov\notifications\migrations',
             ],
         ],
     ],

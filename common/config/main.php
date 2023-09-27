@@ -2,6 +2,9 @@
 
 use creocoder\flysystem\LocalFilesystem;
 use yii\caching\FileCache;
+use tuyakhov\notifications\channels\ActiveRecordChannel;
+use tuyakhov\notifications\channels\MailChannel;
+use tuyakhov\notifications\Notifier;
 use yii\redis\Cache;
 use yii\redis\Connection;
 use yii\redis\Session;
@@ -33,6 +36,18 @@ return [
             // 'writeFlags' => LOCK_EX,
             // 'linkHandling' => 0002,
             // 'permissions' => [],
+        ],
+        'notifier' => [
+            'class' => Notifier::class,
+            'channels' => [
+                'mail' => [
+                    'class' => MailChannel::class,
+                    'from' => getenv('SENDER_EMAIL'),
+                ],
+                'database' => [
+                    'class' => ActiveRecordChannel::class
+                ],
+            ],
         ],
     ],
 ];
