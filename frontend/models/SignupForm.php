@@ -2,10 +2,11 @@
 
 namespace frontend\models;
 
+use common\models\User;
+use common\notifications\EmailVerifyNotification;
 use Yii;
 use yii\base\Exception;
 use yii\base\Model;
-use common\models\User;
 
 /**
  * Signup form
@@ -50,7 +51,7 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
@@ -68,15 +69,15 @@ class SignupForm extends Model
      */
     protected function sendEmail(User $user): bool
     {
-        return Yii::$app
-            ->mailer
-            ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $user]
-            )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
-            ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
-            ->send();
+        try {
+            Yii::$app->notifier->send(
+                $user,
+                new EmailVerifyNotification(['user' => $user]),
+            );
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+
     }
 }

@@ -2,6 +2,10 @@
 
 namespace common\models;
 
+use tuyakhov\notifications\models\Notification;
+use tuyakhov\notifications\NotifiableInterface;
+use tuyakhov\notifications\NotifiableTrait;
+use tuyakhov\notifications\NotificationInterface;
 use Yii;
 use yii\base\Exception;
 use yii\base\NotSupportedException;
@@ -24,9 +28,14 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property-read string $authKey
  * @property string $password write-only password
+ *
+ * @property Notification[] $notifications
+ * @property Notification[] $unreadNotifications
  */
-class User extends ActiveRecord implements IdentityInterface
+class User extends ActiveRecord implements IdentityInterface, NotifiableInterface
 {
+    use NotifiableTrait;
+
     public const STATUS_DELETED = 0;
     public const STATUS_INACTIVE = 9;
     public const STATUS_ACTIVE = 10;
@@ -123,10 +132,10 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * Finds out if password reset token is valid
      *
-     * @param string $token password reset token
+     * @param string|null $token password reset token
      * @return bool
      */
-    public static function isPasswordResetTokenValid(string $token): bool
+    public static function isPasswordResetTokenValid(?string $token): bool
     {
         if (empty($token)) {
             return false;
@@ -216,5 +225,15 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken(): void
     {
         $this->password_reset_token = null;
+    }
+
+    public function viaChannels(): array
+    {
+        return ['mail', 'database'];
+    }
+
+    public function routeNotificationForMail(): string
+    {
+        return $this->email;
     }
 }
