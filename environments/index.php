@@ -54,6 +54,8 @@ return [
             'api/httpdocs' => 'api/web',
             'backend/httpdocs' => 'backend/web',
             'frontend/httpdocs' => 'frontend/web',
+            'api/web/uploads' => 'backend/web/uploads',
+            'frontend/web/uploads' => 'backend/web/uploads',
         ],
     ],
     'Production' => [
@@ -79,6 +81,8 @@ return [
             'api/httpdocs' => 'api/web',
             'backend/httpdocs' => 'backend/web',
             'frontend/httpdocs' => 'frontend/web',
+            'api/web/uploads' => 'backend/web/uploads',
+            'frontend/web/uploads' => 'backend/web/uploads',
         ],
     ],
 ];
