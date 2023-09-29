@@ -1,7 +1,7 @@
 <?php
 
-use yii\console\controllers\MigrateController;
 use yii\console\controllers\FixtureController;
+use yii\console\controllers\MigrateController;
 use yii\log\FileTarget;
 use yii2tech\selfupdate\SelfUpdateController;
 

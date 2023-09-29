@@ -29,10 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'tag' => false,
                             ],
                             'itemView' => static function (Notification $model, $key, $index, $widget) {
-                                $isUnread = empty($model->read_at);
-
                                 return "
-                                <div class='" . ($isUnread ? 'active' : '') . "' data-key='$model->id'>
+                                <div class='" . ($model->unread() ? 'active' : '') . "' data-key='$model->id'>
                                 <div class='row'>
                                     <div class='col-md-10'>
                                         <div class='forum-icon'>

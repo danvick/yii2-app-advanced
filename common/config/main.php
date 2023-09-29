@@ -22,7 +22,7 @@ return [
             'class' => Connection::class,
             'hostname' => getenv('REDIS_HOST'),
             'port' => getenv('REDIS_PORT'),
-            'database' => 0
+            'database' => 0,
         ],
         'session' => [
             'class' => Session::class,
@@ -50,14 +50,16 @@ return [
                     'from' => getenv('SENDER_EMAIL'),
                 ],
                 'database' => [
-                    'class' => ActiveRecordChannel::class
+                    'class' => ActiveRecordChannel::class,
                 ],
                 'fcm' => [
                     'class' => FcmChannel::class,
                     'serverKey' => getenv('FCM_SERVER_KEY'),
                     'senderId' => getenv('FCM_SENDER_ID'),
                 ],
-                'sms' => ['class' => JumbeFupiChannel::class],
+                'sms' => [
+                    'class' => JumbeFupiChannel::class,
+                ],
             ],
         ],
     ],
