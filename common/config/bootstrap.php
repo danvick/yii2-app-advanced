@@ -5,6 +5,7 @@ use Dotenv\Repository\Adapter\EnvConstAdapter;
 use Dotenv\Repository\Adapter\PutenvAdapter;
 use Dotenv\Repository\RepositoryBuilder;
 
+Yii::setAlias('@projectRoot', dirname(__DIR__, 2));
 Yii::setAlias('@common', dirname(__DIR__));
 Yii::setAlias('@frontend', dirname(__DIR__, 2) . '/frontend');
 Yii::setAlias('@api', dirname(__DIR__, 2) . '/api');

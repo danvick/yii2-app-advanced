@@ -25,7 +25,8 @@
         "tuyakhov/yii2-notifications": "dev-master",
         "yiidoc/yii2-timeago": "dev-master",
         "edwinhoksberg/php-fcm": "dev-master",
-        "danvick/yii2-jumbefupi": "dev-main"
+        "danvick/yii2-jumbefupi": "dev-main",
+        "lesha724/selfupdate": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",

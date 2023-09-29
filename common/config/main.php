@@ -8,6 +8,7 @@ use tuyakhov\notifications\channels\MailChannel;
 use tuyakhov\notifications\Notifier;
 use yii\redis\Cache;
 use yii\redis\Connection;
+use yii\redis\Mutex;
 use yii\redis\Session;
 
 return [
@@ -30,6 +31,9 @@ return [
         'cache' => [
             'class' => Cache::class,
             'keyPrefix' => 'APP_CACHE_',
+        ],
+        'mutex' => [
+            'class' => Mutex::class,
         ],
         'fs' => [
             'class' => LocalFilesystem::class,

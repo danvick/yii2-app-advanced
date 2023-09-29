@@ -50,6 +50,11 @@ return [
             'frontend/config/main-local.php',
             'api/config/main-local.php',
         ],
+        'createSymlink' => [
+            'api/httpdocs' => 'api/web',
+            'backend/httpdocs' => 'backend/web',
+            'frontend/httpdocs' => 'frontend/web',
+        ],
     ],
     'Production' => [
         'path' => 'prod',
@@ -69,6 +74,11 @@ return [
             'backend/config/main-local.php',
             'frontend/config/main-local.php',
             'api/config/main-local.php',
+        ],
+        'createSymlink' => [
+            'api/httpdocs' => 'api/web',
+            'backend/httpdocs' => 'backend/web',
+            'frontend/httpdocs' => 'frontend/web',
         ],
     ],
 ];

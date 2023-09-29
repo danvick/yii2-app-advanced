@@ -3,6 +3,7 @@
 use yii\console\controllers\MigrateController;
 use yii\console\controllers\FixtureController;
 use yii\log\FileTarget;
+use yii2tech\selfupdate\SelfUpdateController;
 
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
@@ -32,6 +33,10 @@ return [
                 'console\migrations',
                 'tuyakhov\notifications\migrations',
             ],
+        ],
+        'self-update' => [
+            'class' => SelfUpdateController::class,
+            'configFile' => '@console/config/self-update.php',
         ],
     ],
     'components' => [

@@ -44,3 +44,6 @@ phpunit.phar
 
 # Env File
 /.env
+
+# self-update stuff
+httpdocs
