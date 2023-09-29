@@ -6,6 +6,8 @@ services:
     build: api
     ports:
       - "20080:80"
+    env_file:
+      - .env
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -16,6 +18,8 @@ services:
     build: frontend
     ports:
       - "21080:80"
+    env_file:
+      - .env
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -26,6 +30,8 @@ services:
     build: backend
     ports:
       - "22080:80"
+    env_file:
+      - .env
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -37,13 +43,32 @@ services:
     ports:
       - "6380:6379"
 
+  console:
+    build: backend
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+    command: [ "php", "yii", "migrate/up" ]
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+
   mysql:
     image: mysql:5.7
     environment:
-      - MYSQL_ROOT_PASSWORD=verysecret
-      - MYSQL_DATABASE=yii2advanced
-      - MYSQL_USER=yii2advanced
-      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_SCHEMA}
+#      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+#      - MYSQL_ROOT_HOST='%'
+    command: ["--init-file", "/docker-entrypoint-initdb.d/init.sql"]
+    volumes:
+      - ./db/storage:/var/lib/mysql:rw
+      - ./db/init:/docker-entrypoint-initdb.d/:rw
+      - ./db/config:/etc/mysql/conf.d/
 
   #pgsql:
   #  image: postgres:9.5
